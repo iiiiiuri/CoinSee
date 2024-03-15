@@ -1,0 +1,61 @@
+{% extends "coin_see/index.html" %}
+
+{% block conteudo %}
+<section class="flex w-full h-4/5">
+    <div class="w-full h-full flex">
+        <div class="bg-[#347672] w-1/4 h-5/6  mx-4 rounded-md mt-4 p-4 space-y-3">
+            <h1 class="text-center mb-2 text-2xl text-white font-baloo-bhaina">Moedas Populares:</h1>
+
+            <div class="flex w-full justify-center space-x-2">
+            <button class="delay-75 transition-all px-4 rounded-md border-2 border-[#85e4e4] text-md hover:bg-[#85e4e4] hover:border-white text-white hover:text-[#275A57]">Alta</button>
+            <button class="delay-75 transition-all px-4 rounded-md border-2 border-[#85e4e4] text-md hover:bg-[#85e4e4] hover:border-white text-white hover:text-[#275A57]">Baixa</button>
+            </div>
+
+            {% for coin in coins %}
+
+            <div class="bg-[#5BA5A5] w-full p-4 rounded-md flex justify-between items-center">
+                {% comment %} Imagem {% endcomment %}
+                <div class="flex items-center justify-center">
+                    <img src="{{coin.image}}" class="rounded-full w-12">
+                </div>
+
+                {% comment %} Titulo | Valor {% endcomment %}
+                <div class="ml-2">
+                    <p class="font-baloo-thambi text-white text-lg">{{coin.name}}</p>
+                    <label class="font-baloo-bhai text-[#275A57] text-2xl">R$ {{coin.current_price}}</label> 
+                </div>
+
+                {% comment %} Span Porcentagem {% endcomment %}
+                <div class="ml-6">
+                    <p class="font-baloo-bhaina text-[#275A57]">{{coin.symbol|upper}}</p>
+                    <div class="bg-[#275A57] px-2 rounded-md">
+                        <span class="text-red-400">{{coin.price_change_percentage_24h}}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="bg-[#347672] w-full h-5/6 mx-4 rounded-md mt-4">
+
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock conteudo %}
+
+
+
+   {% comment %} 
+            [{'id': 'bitcoin', 'symbol': 'btc', 'name': 'Bitcoin', 'image': 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400', 'current_price': 339234, 'market_cap': 6684666903354, 'market_cap_rank': 1, 'fully_diluted_valuation': 7142060801812, 'total_volume': 429395123820, 'high_24h': 361022, 'low_24h': 328879, 'price_change_24h': -12101.64319332852, 'price_change_percentage_24h': -3.44447, 'market_cap_change_24h': -198048045844.1211, 'market_cap_change_percentage_24h': -2.87747, 'circulating_supply': 19655112.0, 'total_supply': 21000000.0, 'max_supply': 21000000.0, 'ath': 380542, 'ath_change_percentage': -10.98535, 'ath_date': '2021-11-09T04:09:45.771Z', 'atl': 149.66, 'atl_change_percentage': 226240.71605, 'atl_date': '2013-07-05T00:00:00.000Z', 'roi': None, 'last_updated': 
+   
+   
+   {% endcomment %}
+
+
+
+
+            
